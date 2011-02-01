@@ -109,7 +109,7 @@
                    :group-id "org.cloudhoist"
                    :artifact-id "pallet"
                    :branches ["origin/develop" "origin/master"]
-                   :github {:projectUrl "http://github.com/pallet/pallet/"}
+                   :github {:projectUrl "https://github.com/pallet/pallet/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet.git"]
@@ -123,7 +123,7 @@
                    :artifact-id "pallet-crates"
                    :branches ["origin/master" "origin/integrate-*"]
                    :merge-target "master"
-                   :github {:projectUrl "http://github.com/pallet/pallet-crates/"}
+                   :github {:projectUrl "https://github.com/pallet/pallet-crates/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-crates.git"]
@@ -137,7 +137,7 @@
                    :artifact-id "pallet-apache-crates"
                    :branches ["origin/master" "origin/integrate-*"]
                    :merge-target "master"
-                   :github {:projectUrl "http://github.com/pallet/pallet-apache-crates/"}
+                   :github {:projectUrl "https://github.com/pallet/pallet-apache-crates/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-apache-crates.git"]
@@ -151,7 +151,7 @@
                    :artifact-id "pallet-all"
                    :branches ["origin/master" "origin/integrate-*"]
                    :merge-target "master"
-                   :github {:projectUrl "http://github.com/pallet/pallet-all/"}
+                   :github {:projectUrl "https://github.com/pallet/pallet-all/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-all.git"]
@@ -165,7 +165,7 @@
                    :artifact-id "pallet-pom"
                    :branches ["origin/master" "origin/integrate-*"]
                    :merge-target "master"
-                   :github {:projectUrl "http://github.com/pallet/pallet-pom/"}
+                   :github {:projectUrl "https://github.com/pallet/pallet-pom/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-pom.git"]
@@ -179,6 +179,7 @@
                    :artifact-id "clj-ssh"
                    :branches ["origin/master"]
                    :maven-opts ""
+                   :github {:projectUrl "https://github.com/hugoduncan/clj-ssh/"}
                    :scm ["git://github.com/hugoduncan/clj-ssh.git"])))))
 
 

@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.cloudhoist</groupId>
     <artifactId>pallet-pom</artifactId>
-    <version>0.4.0-SNAPSHOT</version>
+    <version>0.4.0</version>
     <relativePath>../pallet-pom</relativePath>
   </parent>
   <artifactId>pallet-ci-server</artifactId>
@@ -84,53 +84,53 @@
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>hudson</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>java</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>tomcat</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>automated-admin-user</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>git</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>gpg</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>iptables</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>ssh</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>ssh-key</artifactId>
-      <version>${pallet.version}</version>
+      <version>0.4.0</version>
     </dependency>
 
     <dependency>
       <groupId>vmfest</groupId>
       <artifactId>vmfest</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.2.2</version>
       <scope>test</scope>
     </dependency>
 
@@ -219,7 +219,7 @@
   </scm>
 
   <properties>
-    <pallet.version>0.4.0-SNAPSHOT</pallet.version>
+    <pallet.version>0.4.1</pallet.version>
     <jclouds.version>1.0-beta-8</jclouds.version>
   </properties>
 </project>

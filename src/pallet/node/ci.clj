@@ -108,53 +108,70 @@
                    :goals "-P testuser,jclouds clean deploy"
                    :group-id "org.cloudhoist"
                    :artifact-id "pallet"
-                   :branches ["origin/develop" "origin/master"]
+                   :branches ["origin/develop" "origin/feature/*"]
                    :github {:projectUrl "https://github.com/pallet/pallet/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet.git"]
+                   :num-to-keep 10
                    :publishers {:ircbot
                                 {:targets [{:name "#pallet"}]
-                                 :strategy :all}})
+                                 :strategy :all}}
+                   :properties
+                   {:authorization-matrix
+                    [{:user "anonymous"
+                      :permissions #{:item-read :item-build :item-workspace}}]})
        (hudson/job :maven2 "pallet-crates"
                    :maven-name "default maven"
                    :goals "clean deploy"
                    :group-id "org.cloudhoist"
                    :artifact-id "pallet-crates"
-                   :branches ["origin/master" "origin/integrate-*"]
-                   :merge-target "master"
-                   :github {:projectUrl "https://github.com/pallet/pallet-crates/"}
+                   :branches ["origin/develop" "origin/feature/*"]
+                   :github {:projectUrl
+                            "https://github.com/pallet/pallet-crates/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-crates.git"]
+                   :num-to-keep 10
                    :publishers {:ircbot
                                 {:targets [{:name "#pallet"}]
-                                 :strategy :all}})
+                                 :strategy :all}}
+                   :properties
+                   {:authorization-matrix
+                    [{:user "anonymous"
+                      :permissions #{:item-read :item-build :item-workspace}}]})
        (hudson/job :maven2 "pallet-apache-crates"
                    :maven-name "default maven"
                    :goals "clean deploy"
                    :group-id "org.cloudhoist"
                    :artifact-id "pallet-apache-crates"
-                   :branches ["origin/master" "origin/integrate-*"]
+                   :branches ["origin/develop" "origin/feature/*"]
                    :merge-target "master"
-                   :github {:projectUrl "https://github.com/pallet/pallet-apache-crates/"}
+                   :github {:projectUrl
+                            "https://github.com/pallet/pallet-apache-crates/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-apache-crates.git"]
+                   :num-to-keep 10
                    :publishers {:ircbot
                                 {:targets [{:name "#pallet"}]
-                                 :strategy :all}})
+                                 :strategy :all}}
+                   :properties
+                   {:authorization-matrix
+                    [{:user "anonymous"
+                      :permissions #{:item-read :item-build}}]})
        (hudson/job :maven2 "pallet-all"
                    :maven-name "default maven"
                    :goals "clean deploy"
                    :group-id "org.cloudhoist"
                    :artifact-id "pallet-all"
-                   :branches ["origin/master" "origin/integrate-*"]
+                   :branches ["origin/develop" "origin/feature/*"]
                    :merge-target "master"
                    :github {:projectUrl "https://github.com/pallet/pallet-all/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-all.git"]
+                   :num-to-keep 10
                    :publishers {:ircbot
                                 {:targets [{:name "#pallet"}]
                                  :strategy :all}})
@@ -163,15 +180,20 @@
                    :goals "clean deploy"
                    :group-id "org.cloudhoist"
                    :artifact-id "pallet-pom"
-                   :branches ["origin/master" "origin/integrate-*"]
+                   :branches ["origin/develop" "origin/feature/*"]
                    :merge-target "master"
                    :github {:projectUrl "https://github.com/pallet/pallet-pom/"}
                    :aggregator-style-build true
                    :maven-opts ""
                    :scm ["git://github.com/pallet/pallet-pom.git"]
+                   :num-to-keep 10
                    :publishers {:ircbot
                                 {:targets [{:name "#pallet"}]
-                                 :strategy :all}})
+                                 :strategy :all}}
+                   :properties
+                   {:authorization-matrix
+                    [{:user "anonymous"
+                      :permissions #{:item-read :item-build :item-workspace}}]})
        (hudson/job :maven2 "clj-ssh"
                    :maven-name "default maven"
                    :goals "-Ptestuser clean test"
@@ -180,7 +202,8 @@
                    :branches ["origin/master"]
                    :maven-opts ""
                    :github {:projectUrl "https://github.com/hugoduncan/clj-ssh/"}
-                   :scm ["git://github.com/hugoduncan/clj-ssh.git"])))))
+                   :scm ["git://github.com/hugoduncan/clj-ssh.git"]
+                   :num-to-keep 10)))))
 
 
 (defn remove-ci

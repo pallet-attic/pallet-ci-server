@@ -3,6 +3,7 @@
   (:require
    [pallet.core :as core]
    [pallet.crate.automated-admin-user :as automated-admin-user]
+   [pallet.crate.crontab :as crontab]
    [pallet.crate.git :as git]
    [pallet.crate.gpg :as gpg]
    [pallet.crate.java :as java]
@@ -15,6 +16,7 @@
    [pallet.parameter :as parameter]
    [pallet.resource :as resource]
    [pallet.resource.directory :as directory]
+   [pallet.resource.file :as file]
    [pallet.resource.package :as package]
    [pallet.resource.remote-file :as remote-file]
    [pallet.resource.service :as service]
@@ -80,12 +82,13 @@
         :admin-user (properties :hudson.hugo.user)
         :admin-password (properties :hudson.hugo.password))
        (generate-ssh-keys)
-       (hudson/plugin :git)
-       (hudson/plugin :github)
-       (hudson/plugin :instant-messaging)
-       (hudson/plugin :greenballs)
+       (hudson/plugin :git :version "1.1.5")
+       (hudson/plugin :github :version "0.4")
+       (hudson/plugin :instant-messaging :version "1.13")
+       (hudson/plugin :greenballs :version "1.10")
        (hudson/plugin
         :ircbot
+        :version "2.9"
         :enabled true :hostname "irc.freenode.net" :port 6667
         :nick "palletci" :nick-serv-password "hudsonci"
         :hudson-login (properties :hudson.ircbot.user)
@@ -225,7 +228,16 @@
               (iptables/iptables-accept-established)
               (ssh/iptables-throttle)
               (ssh/iptables-accept)
-              (ci-config))
+              (ci-config)
+              (crontab/system-crontab
+               "clj-mvn-tmpfiles"
+               :content (stevedore/script
+                         (rm (quoted "/tmp/class*dir")
+                             {:force true :recursive true})
+                         (rm (quoted "/tmp/pallet*tmp*")
+                             {:force true :recursive true})
+                         (rm (quoted "/tmp/run-test*.clj") {:force true}))
+               :literal true))
   :restart-tomcat (resource/phase
                    (service/service "tomcat6" :action :restart))
   :reload-configuration (resource/phase

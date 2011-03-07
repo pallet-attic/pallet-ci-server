@@ -22,13 +22,6 @@
       </resource>
       <resource>
         <directory>resources</directory>
-        <excludes>
-          <exclude>filtered/*</exclude>
-        </excludes>
-      </resource>
-      <resource>
-        <directory>resources/filtered</directory>
-        <filtering>true</filtering>
       </resource>
     </resources>
     <testResources>
@@ -65,8 +58,42 @@
           </execution>
           </executions>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.1</version>
+        <executions>
+          <execution>
+            <phase>deploy</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <workingDirectory>/tmp</workingDirectory>
+          <!-- <mainClass>clojure.main</mainClass> -->
+          <classpathScope>compile</classpathScope>
+          <arguments>
+            <argument>-e</argument>
+            <argument>(use \'pallet.ci)(converge)</argument>
+            <argument>-Dpallet.ci.node-count=${pallet.ci.node-count}</argument>
+            <classpath/>
+            <argument>clojure.main</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
 
   <dependencies>
     <dependency>
@@ -124,6 +151,11 @@
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>ssh-key</artifactId>
+      <version>0.4.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.cloudhoist</groupId>
+      <artifactId>crontab</artifactId>
       <version>0.4.0</version>
     </dependency>
 
@@ -132,6 +164,12 @@
       <artifactId>vmfest</artifactId>
       <version>0.2.2</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <optional>true</optional>
     </dependency>
 
     <dependency>
@@ -192,11 +230,16 @@
             <groupId>com.theoryinpractise</groupId>
             <artifactId>clojure-maven-plugin</artifactId>
             <configuration>
-              <clojureOptions>-Dpallet.test.live=true -Dpallet.test.service-name=${pallet.test.service-name} -Dpallet.test.cleanup-nodes=${pallet.test.cleanup-nodes}</clojureOptions>
+              <clojureOptions>-Dpallet.test.live=true -Dpallet.test.service-name=${pallet.test.service-name} -Dpallet.test.cleanup-nodes=${pallet.test.cleanup-nodes} -Dpallet.test.cleanup-nodes=${pallet.test.image-list}</clojureOptions>
             </configuration>
           </plugin>
         </plugins>
       </build>
+      <properties>
+        <pallet.test.service-name>live-test</pallet.test.service-name>
+        <pallet.test.cleanup-nodes>true</pallet.test.cleanup-nodes>
+        <pallet.test.image-list/>
+      </properties>
     </profile>
   </profiles>
 
@@ -219,7 +262,8 @@
   </scm>
 
   <properties>
-    <pallet.version>0.4.1</pallet.version>
+    <pallet.version>0.4.8-SNAPSHOT</pallet.version>
     <jclouds.version>1.0-beta-8</jclouds.version>
+    <pallet.ci.node-count>1</pallet.ci.node-count>
   </properties>
 </project>

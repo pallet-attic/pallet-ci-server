@@ -34,6 +34,7 @@
         <groupId>com.theoryinpractise</groupId>
         <artifactId>clojure-maven-plugin</artifactId>
         <configuration>
+          <script>src/pallet/ci.clj</script>
         </configuration>
         <executions>
           <execution>
@@ -56,7 +57,7 @@
               <skip>true</skip>
             </configuration>
           </execution>
-          </executions>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -72,7 +73,6 @@
         </executions>
         <configuration>
           <executable>java</executable>
-          <workingDirectory>/tmp</workingDirectory>
           <!-- <mainClass>clojure.main</mainClass> -->
           <classpathScope>compile</classpathScope>
           <arguments>
@@ -111,52 +111,57 @@
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>hudson</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.4-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>java</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.cloudhoist</groupId>
+      <artifactId>maven</artifactId>
+      <version>0.4.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>tomcat</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.2</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>automated-admin-user</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.2</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>git</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.1</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>gpg</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.1</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>iptables</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.1</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>ssh</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.1</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>ssh-key</artifactId>
-      <version>0.4.1-SNAPSHOT</version>
+      <version>0.4.2</version>
     </dependency>
     <dependency>
       <groupId>org.cloudhoist</groupId>
       <artifactId>crontab</artifactId>
-      <version>0.4.0</version>
+      <version>0.4.1</version>
     </dependency>
 
     <dependency>
@@ -262,7 +267,7 @@
   </scm>
 
   <properties>
-    <pallet.version>0.4.8-SNAPSHOT</pallet.version>
+    <pallet.version>0.4.17-SNAPSHOT</pallet.version>
     <jclouds.version>1.0-beta-8</jclouds.version>
     <pallet.ci.node-count>1</pallet.ci.node-count>
   </properties>

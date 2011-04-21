@@ -11,6 +11,9 @@ providing a consistently configured running image across a range of clouds.  It
 is designed for use from the [Clojure](http://clojure.org) REPL, from clojure
 code, and from the command line.
 
+To update the nodes:
+
+    mvn clojure:run
 
 ## License
 

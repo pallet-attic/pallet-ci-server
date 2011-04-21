@@ -250,6 +250,42 @@
                     {:authorization-matrix
                      [{:user "Anonymous"
                        :permissions #{:item-read :item-build :item-workspace}}]})
+        (hudson/job :maven2 "common"
+                    :maven-name "default maven"
+                    :goals "clean deploy"
+                    :group-id "org.cloudhoist"
+                    :artifact-id "thread-expr"
+                    :branches ["origin/develop"]
+                    :github {:projectUrl "https://github.com/pallet/common/"}
+                    :aggregator-style-build true
+                    :maven-opts ""
+                    :scm ["git://github.com/pallet/common.git"]
+                    :num-to-keep 10
+                    :publishers {:ircbot
+                                 {:targets [{:name "#pallet"}]
+                                  :strategy :all}}
+                    :properties
+                    {:authorization-matrix
+                     [{:user "Anonymous"
+                       :permissions #{:item-read :item-build :item-workspace}}]})
+        (hudson/job :maven2 "stevedore"
+                    :maven-name "default maven"
+                    :goals "clean deploy"
+                    :group-id "org.cloudhoist"
+                    :artifact-id "thread-expr"
+                    :branches ["origin/develop"]
+                    :github {:projectUrl "https://github.com/pallet/common/"}
+                    :aggregator-style-build true
+                    :maven-opts ""
+                    :scm ["git://github.com/pallet/stevedore.git"]
+                    :num-to-keep 10
+                    :publishers {:ircbot
+                                 {:targets [{:name "#pallet"}]
+                                  :strategy :all}}
+                    :properties
+                    {:authorization-matrix
+                     [{:user "Anonymous"
+                       :permissions #{:item-read :item-build :item-workspace}}]})
         (hudson/job :maven2 "clj-ssh"
                     :maven-name "default maven"
                     :goals "-Ptestuser clean test"

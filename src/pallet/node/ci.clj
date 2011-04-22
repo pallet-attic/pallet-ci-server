@@ -81,7 +81,9 @@
                                        :item-workspace :run-delete :run-update
                                        :scm-tag}}
                        {:user "tbatchelli" :permissions hudson/all-permissions}
-                       {:user "Anonymous" :permissions [:item-read]}]
+                       {:user "ambrosebs" :permissions hudson/all-permissions}
+                       {:user "Anonymous"
+                        :permissions [:item-read :hudson-read]}]
          :admin-user (properties :hudson.hugo.user)
          :admin-password (properties :hudson.hugo.password))
         (generate-ssh-keys)

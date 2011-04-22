@@ -122,6 +122,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/pallet.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}}
@@ -156,6 +157,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/pallet-crates.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}}
@@ -193,6 +195,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/pallet-apache-crates.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}}
@@ -212,6 +215,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/pallet-all.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}})
@@ -227,6 +231,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/pallet-pom.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}}
@@ -245,6 +250,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/thread-expr.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}}
@@ -263,6 +269,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/common.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}}
@@ -281,6 +288,7 @@
                     :maven-opts ""
                     :scm ["git://github.com/pallet/stevedore.git"]
                     :num-to-keep 10
+                    :triggers {:scm-trigger "*/15 * * * *"}
                     :publishers {:ircbot
                                  {:targets [{:name "#pallet"}]
                                   :strategy :all}}

@@ -69,7 +69,7 @@
        (tomcat/server-configuration (tomcat/server))
        (hudson/tomcat-deploy)
        (thread-expr/binding->
-        [remote-file/force-overwrite true]
+        [remote-file/set-force-overwrite true]
         (hudson/config
          :use-security true
          :security-realm :hudson
@@ -327,7 +327,7 @@
               (iptables/iptables-accept-established)
               (ssh/iptables-throttle)
               (ssh/iptables-accept)
-              (thread-expr/binding-> [remote-file/force-overwrite true]
+              (thread-expr/binding-> [remote-file/set-force-overwrite true]
                 (ci-config))
               (crontab/system-crontab
                "clj-mvn-tmpfiles"
